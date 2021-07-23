@@ -15,6 +15,7 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('persona_id');
             $table->foreign('persona_id')->references('id')->on('people')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

@@ -15,6 +15,7 @@ class CreateHotelBookingTable extends Migration
     {
         Schema::create('hotel_booking', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('hotel_request_id');
             $table->foreign('hotel_request_id')->references('id')->on('hotel_requests')->cascadeOnUpdate()->cascadeOnDelete();
             $table->date('day_booked');
             $table->decimal('final_price',10,2);

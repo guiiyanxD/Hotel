@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/user','UserController');
+route::resource('/clients','ClientController');
+route::resource('/room_type','RoomTypeController');
+route::resource('/carriage_type','CarriageTypeController');
+

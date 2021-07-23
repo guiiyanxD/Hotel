@@ -15,6 +15,7 @@ class CreateCarriageBookingTable extends Migration
     {
         Schema::create('carriage_booking', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('carriage_request_id');
             $table->foreign('carriage_request_id')->references('id')->on('carriage_requests')->cascadeOnUpdate()->cascadeOnDelete();
             $table->date('day_booked');
             $table->decimal('final_price',10,2);

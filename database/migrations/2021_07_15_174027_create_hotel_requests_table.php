@@ -15,6 +15,8 @@ class CreateHotelRequestsTable extends Migration
     {
         Schema::create('hotel_requests', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('hotel_id');
             $table->foreign('client_id')->references('id')->on('clients')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('hotel_id')->references('id')->on('hotel')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('city', 45);

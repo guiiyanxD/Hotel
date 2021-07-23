@@ -15,6 +15,8 @@ class CreateCarriagesTable extends Migration
     {
         Schema::create('carriages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('carriage_types')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('company_id')->references('id')->on('carriages_company')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('city',45);
